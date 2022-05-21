@@ -4,7 +4,7 @@ const AUTH_URL = '/auth'
 
 /**
  * @param {{email: string, password: string}} body
- * @returns {Promise<import('../types/AuthResponse').AuthResponse>}
+ * @returns {Promise<import('../types/Auth').AuthResponse>}
  */
 export async function login(body) {
 	return await dataFetching(`${AUTH_URL}/login`, { body, method: 'POST' })
@@ -12,7 +12,7 @@ export async function login(body) {
 
 /**
  * @param {{name: string, email: string, password: string, role: ('applicant'|'employer')}} body
- * @returns {Promise<import('../types/AuthResponse').AuthResponse>}
+ * @returns {Promise<import('../types/Auth').AuthResponse>}
  */
 export async function signUp(body) {
 	return await dataFetching(`${AUTH_URL}/signup`, { body, method: 'POST' })
@@ -20,7 +20,7 @@ export async function signUp(body) {
 
 /**
  * @param {import('../types/DataFetching').Token} token
- * @returns {Promise<import('../types/AuthResponse').AuthResponse>}
+ * @returns {Promise<import('../types/Auth').AuthResponse>}
  */
 export async function validate(token) {
 	return await dataFetching(`${AUTH_URL}/validate`, { method: 'POST', token })
