@@ -1,0 +1,40 @@
+.form {
+	padding: 64px 32px;
+	display: flex;
+	flex-direction: column;
+	max-width: 512px;
+	width: 100%;
+	margin: auto;
+	gap: 48px;
+	border-radius: 4px;
+	box-shadow: 0 1px 2px var(--grey-color-800), 0 2px 4px -2px var(--grey-color-700),
+		0 4px 8px -4px var(--grey-color-600);
+}
+
+.title {
+	margin: 0;
+	text-align: center;
+}
+
+.footer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 8px;
+}
+
+.footer small {
+	display: flex;
+	gap: 4px;
+}
+
+.footer small span {
+	text-decoration: underline;
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--indigo-color);
+	cursor: pointer;
+}
+.footer small span[data-signup='true'] {
+	color: var(--teal-color);
+}

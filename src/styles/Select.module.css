@@ -1,0 +1,43 @@
+.group {
+	position: relative;
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: flex-start;
+	width: fit-content;
+}
+
+.group.fill {
+	width: 100%;
+}
+
+.select {
+	box-sizing: border-box;
+	border: none;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 12px 0;
+	color: var(--grey-color);
+	border-bottom: 1px solid var(--grey-color);
+	max-height: 46px;
+	width: 100%;
+	background-color: transparent;
+	cursor: pointer;
+}
+.select:focus {
+	outline: none;
+}
+.group.active .select,
+.select:focus {
+	color: var(--black-color);
+	border-bottom: 2px solid var(--purple-color);
+}
+
+.label {
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--grey-color);
+}
+.group.active .label,
+.select:focus + .label {
+	color: var(--purple-color);
+}

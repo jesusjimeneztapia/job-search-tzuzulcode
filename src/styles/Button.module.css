@@ -1,0 +1,70 @@
+.button {
+	display: flex;
+	gap: 8px;
+	border: none;
+	font-size: 16px;
+	font-weight: 500;
+	text-transform: uppercase;
+	padding: 8px 16px;
+	border-radius: 4px;
+	cursor: pointer;
+	color: var(--black-color);
+	box-shadow: 0 1px 2px var(--grey-color-800), 0 2px 4px -2px var(--grey-color-700),
+		0 4px 8px -4px var(--grey-color-600);
+}
+
+.button.primary,
+.button.success,
+.button.danger {
+	color: var(--white-color);
+}
+
+.button.primary {
+	background-color: var(--indigo-color);
+}
+.button.primary:hover {
+	background-color: var(--indigo-color-400);
+}
+.button.primary:active {
+	background-color: var(--indigo-color-600);
+}
+
+.button.secondary {
+	background-color: var(--grey-color);
+}
+.button.secondary:hover {
+	background-color: var(--grey-color-400);
+}
+.button.secondary:active {
+	background-color: var(--grey-color-600);
+}
+
+.button.success {
+	background-color: var(--teal-color);
+}
+.button.success:hover {
+	background-color: var(--teal-color-400);
+}
+.button.success:active {
+	background-color: var(--teal-color-600);
+}
+
+.button.danger {
+	background-color: var(--red-color);
+}
+.button.danger:hover {
+	background-color: var(--red-color-400);
+}
+.button.danger:active {
+	background-color: var(--red-color-600);
+}
+
+.button.warning {
+	background-color: var(--amber-color);
+}
+.button.warning:hover {
+	background-color: var(--amber-color-400);
+}
+.button.warning:active {
+	background-color: var(--amber-color-600);
+}

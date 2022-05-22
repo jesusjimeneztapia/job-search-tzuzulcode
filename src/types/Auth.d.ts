@@ -30,3 +30,13 @@ export interface AuthOptions {
 	setAuth(state: Auth, payload: Auth): Auth
 	reset(): Auth
 }
+
+export interface LoginUserDTO {
+	email: string
+	password: string
+}
+
+export interface CreateUserDTO extends LoginUserDTO {
+	name: string
+	role: Role
+}

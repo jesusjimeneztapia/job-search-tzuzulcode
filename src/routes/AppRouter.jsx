@@ -1,15 +1,19 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Header from '../components/Header'
 import { AuthPage, HomePage, NotFoundPage } from '../pages'
 import ROUTES from './helper'
 
 export default function AppRouter() {
 	return (
 		<BrowserRouter>
-			<Routes>
-				<Route path={ROUTES.homeRoute} element={<HomePage />} />
-				<Route path={ROUTES.authRoute} element={<AuthPage />} />
-				<Route path='*' element={<NotFoundPage />} />
-			</Routes>
+			<Header />
+			<div style={{ padding: '16px' }}>
+				<Routes>
+					<Route path={ROUTES.homeRoute} element={<HomePage />} />
+					<Route path={ROUTES.authRoute} element={<AuthPage />} />
+					<Route path='*' element={<NotFoundPage />} />
+				</Routes>
+			</div>
 		</BrowserRouter>
 	)
 }
