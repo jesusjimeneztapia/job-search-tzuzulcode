@@ -4,6 +4,7 @@ import styles from '../styles/UserDropdown.module.css'
 import ArrowDownIcon from './icons/ArrowDownIcon'
 import ExitIcon from './icons/ExitIcon'
 import UserIcon from './icons/UserIcon'
+import ROUTES from '../routes/helper'
 
 export default function UserDropdown({ name, logout }) {
 	const [show, setShow] = useState(false)
@@ -14,18 +15,16 @@ export default function UserDropdown({ name, logout }) {
 
 	return (
 		<div onClick={toggleShow} className={styles.dropdown}>
-			<button className={show && styles.rotate}>
+			<button className={`${show && styles.rotate}`}>
 				{name}
 				<ArrowDownIcon />
 			</button>
 			{show && (
 				<ul className={styles.collapse}>
 					<li>
-						<Link to='/perfil'>
-							<a>
-								<UserIcon />
-								Perfil
-							</a>
+						<Link to={ROUTES.profileRoute}>
+							<UserIcon />
+							Perfil
 						</Link>
 					</li>
 					<span className={styles.divider} />

@@ -45,7 +45,7 @@
 	display: inline;
 }
 
-.collapse li:first-child > a > a,
+.collapse li:first-child > a,
 .collapse li {
 	padding: 6px 16px;
 	cursor: pointer;
