@@ -2,7 +2,7 @@ import { ErrorResponse } from './Error'
 
 type Role = 'applicant' | 'employer'
 
-interface User {
+export interface User {
 	email: string
 	exp: number
 	iat: number

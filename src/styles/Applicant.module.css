@@ -1,0 +1,32 @@
+.applicant {
+	padding: 8px;
+	border-radius: 4px;
+	border: 1px solid var(--grey-color-400);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 4px;
+}
+
+.applicant p {
+	width: 100%;
+}
+
+.applicant p:first-child {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 18px;
+	font-weight: 600;
+	color: var(--grey-color-800);
+}
+
+.applicant p strong {
+	color: var(--grey-color-600);
+	margin-right: 8px;
+}
+
+.applicant small {
+	font-size: 14px;
+	margin-top: 4px;
+	color: var(--grey-color);
+}

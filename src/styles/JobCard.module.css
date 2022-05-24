@@ -1,0 +1,93 @@
+.card {
+	position: relative;
+}
+
+.card input {
+	display: none;
+}
+
+.card label {
+	display: block;
+	border: 1px solid var(--grey-color-400);
+	border-radius: 4px;
+	cursor: pointer;
+	padding: 16px;
+}
+
+.card input:checked + label {
+	outline: 1px solid var(--purple-color);
+	border: 1px solid var(--purple-color);
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+}
+
+.title {
+	font-size: 22px;
+	margin: 0 0 6px 0;
+}
+
+.header p {
+	margin: 0;
+	font-weight: 500;
+	font-size: 18px;
+}
+
+.content {
+	color: var(--grey-color-700);
+	margin: 16px 0;
+}
+
+.footer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 8px;
+}
+
+.footer section {
+	width: 100%;
+	display: flex;
+	gap: 4px;
+	flex-direction: column;
+	font-size: 14px;
+}
+
+.footer section h4 {
+	margin: 0;
+	font-weight: 500;
+	color: var(--indigo-color);
+}
+
+.footer section ul {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 32px;
+	margin: 0;
+}
+
+.footer small {
+	position: relative;
+	width: 100%;
+	display: flex;
+}
+
+.footer small span[data-state='true']::before,
+.footer small span[data-state='false'] {
+	position: absolute;
+	right: 0;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+.footer small span[data-state='true']::before {
+	content: 'Activo';
+	color: var(--teal-color);
+}
+
+.footer small span[data-state='false']::before {
+	content: 'Inactivo';
+	color: var(--red-color);
+}

@@ -14,7 +14,7 @@ export default function Header() {
 			<span style={{ cursor: 'pointer' }} onClick={() => navigate(ROUTES.homeRoute)}>
 				Logo
 			</span>
-			<nav>{logged ? <UserDropdown name={user.name} logout={logout} /> : <AuthButton />}</nav>
+			<nav>{logged ? <UserDropdown name={user?.name} logout={logout} /> : <AuthButton />}</nav>
 		</header>
 	)
 }

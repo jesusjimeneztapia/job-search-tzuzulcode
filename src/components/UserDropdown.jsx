@@ -13,6 +13,10 @@ export default function UserDropdown({ name, logout }) {
 		setShow((value) => !value)
 	}
 
+	if (!name) {
+		return <></>
+	}
+
 	return (
 		<div onClick={toggleShow} className={styles.dropdown}>
 			<button className={`${show && styles.rotate}`}>

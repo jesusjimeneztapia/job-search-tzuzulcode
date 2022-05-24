@@ -39,6 +39,7 @@
 	gap: 2px;
 	background-color: var(--black-color);
 	color: var(--white-color);
+	z-index: 1000;
 }
 
 .collapse li svg {

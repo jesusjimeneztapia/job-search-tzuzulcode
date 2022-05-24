@@ -4,7 +4,8 @@ import { AUTH_ACTIONS } from '../actions/authActions'
  * @type {import('../../types/Auth').Auth}
  */
 export const INITIAL_AUTH_STATE = {
-	logged: false,
+	logged: !!localStorage.getItem('token'),
+	token: localStorage.getItem('token'),
 }
 
 /**
