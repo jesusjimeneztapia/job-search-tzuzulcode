@@ -1,0 +1,53 @@
+.toast {
+	position: absolute;
+	z-index: 2000;
+	max-width: 512px;
+	width: fit-content;
+	min-width: 256px;
+	top: 24px;
+	left: 50%;
+	padding: 8px 16px;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	border-radius: 4px;
+}
+
+.toast header {
+	display: flex;
+	justify-content: flex-end;
+	border-bottom: 1px solid var(--grey-color-400);
+}
+
+.toast header > svg {
+	cursor: pointer;
+}
+.toast header > svg > path {
+	fill: var(--grey-color-400);
+}
+
+.toast p {
+	margin: 0;
+	font-weight: 600;
+	font-size: 18px;
+	padding: 6px;
+}
+
+.toast.primary,
+.toast.danger,
+.toast.success {
+	color: var(--white-color);
+}
+
+.toast.primary {
+	background-color: var(--indigo-color);
+}
+
+.toast.danger {
+	background-color: var(--red-color);
+}
+
+.toast.success {
+	background-color: var(--teal-color);
+}

@@ -11,22 +11,24 @@ export default function ProfilePage() {
 	}
 
 	return (
-		<article className={styles.profile}>
-			<h2>Perfil</h2>
-			<div className={styles.content}>
-				<section>
-					<h4>Nombre:</h4>
-					<p>{user.name}</p>
-				</section>
-				<section>
-					<h4>Correo electrónico:</h4>
-					<p>{user.email}</p>
-				</section>
-				<section>
-					<h4>Rol:</h4>
-					<p>{user.role}</p>
-				</section>
-			</div>
-		</article>
+		<>
+			<article className={styles.profile}>
+				<h2>Mi perfil</h2>
+				<div className={styles.content}>
+					<section>
+						<h4>Nombre:</h4>
+						<p>{user.name}</p>
+					</section>
+					<section>
+						<h4>Correo electrónico:</h4>
+						<p>{user.email}</p>
+					</section>
+					<section>
+						<h4>Rol:</h4>
+						<p>{user.role}</p>
+					</section>
+				</div>
+			</article>
+		</>
 	)
 }

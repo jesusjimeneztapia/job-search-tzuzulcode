@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from 'react'
 import { authReducer, INITIAL_AUTH_STATE } from '../reducers/authReducer'
 import * as authService from '../../services/authService'
+import { useToast } from './ToastProvider'
 
 const AuthContext = createContext({
 	...INITIAL_AUTH_STATE,
@@ -20,6 +21,7 @@ const AuthContext = createContext({
 })
 
 export function useAuth() {
+	const { showToast } = useToast()
 	const { setAuth, reset, ...rest } = useContext(AuthContext)
 
 	useEffect(() => {
@@ -27,6 +29,7 @@ export function useAuth() {
 			const response = await authService.validate(token)
 			if (response.error) {
 				localStorage.removeItem('token')
+				showToast({ color: 'danger', message: response.message })
 				return reset()
 			}
 			setAuth({ ...response, token })
@@ -41,6 +44,7 @@ export function useAuth() {
 }
 
 export default function AuthProvider({ children }) {
+	const { showToast } = useToast()
 	const [auth, dispatchAuth] = useReducer(authReducer, INITIAL_AUTH_STATE)
 
 	/**
@@ -58,8 +62,13 @@ export default function AuthProvider({ children }) {
 	 * @param {import('../../types/Auth').LoginUserDTO} user
 	 */
 	const login = async ({ email, password }) => {
-		const response = await authService.login({ email, password })
-		if (!response.error && !response.message) {
+		const response = await showToast(
+			{ color: 'success', message: 'Inicio de sesión realizado con éxito' },
+			async () => {
+				return await authService.login({ email, password })
+			}
+		)
+		if (response) {
 			setAuth({ ...response, logged: true })
 		}
 	}
@@ -68,8 +77,13 @@ export default function AuthProvider({ children }) {
 	 * @param {import('../../types/Auth').CreateUserDTO} user
 	 */
 	const signUp = async (user) => {
-		const response = await authService.signUp(user)
-		if (!response.error && !response.message) {
+		const response = await showToast(
+			{ color: 'success', message: 'Registro completado con éxtio' },
+			async () => {
+				return await authService.signUp(user)
+			}
+		)
+		if (response) {
 			setAuth({ ...response, logged: true })
 		}
 	}

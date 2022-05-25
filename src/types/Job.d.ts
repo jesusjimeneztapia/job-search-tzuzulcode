@@ -12,7 +12,7 @@ interface Location {
 
 interface Job {
 	applicants: JobUser[]
-	category: string[]
+	categories: string[]
 	creationDate: string
 	description: string
 	employer: JobUser
@@ -23,4 +23,5 @@ interface Job {
 	id: string
 }
 
+export type JobResponse = ErrorResponse | Job
 export type JobCollectionResponse = ErrorResponse | Job[]

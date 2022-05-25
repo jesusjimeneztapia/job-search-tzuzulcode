@@ -1,7 +1,8 @@
-import { useLocation } from 'react-router-dom'
 import Aplicant from '../../components/Aplicant'
 import Button from '../../components/Button'
+import Spinner from '../../components/Spinner'
 import styles from './HomePage.module.css'
+import { useJobDetails } from './hooks'
 
 function getDays(creationDate) {
 	const now = new Date()
@@ -14,22 +15,31 @@ function getDays(creationDate) {
 }
 
 export default function JobDetails() {
-	/**
-	 * @type {{state: import('../../types/Job').Job}}
-	 */
+	const { isLoading, job, handleApply } = useJobDetails()
+
+	if (isLoading) {
+		return (
+			<div className={styles.details}>
+				<Spinner />
+			</div>
+		)
+	}
+
+	if (!job) {
+		return <p>Seleccione un trabajo</p>
+	}
+
 	const {
-		state: {
-			applicants,
-			category,
-			creationDate,
-			description,
-			employer,
-			location,
-			salary,
-			state,
-			title,
-		},
-	} = useLocation()
+		applicants,
+		categories,
+		creationDate,
+		description,
+		employer,
+		location,
+		salary,
+		state,
+		title,
+	} = job
 
 	return (
 		<div className={styles.details}>
@@ -41,7 +51,9 @@ export default function JobDetails() {
 				<small>
 					{getDays(creationDate)} • {applicants?.length} aplicantes
 				</small>
-				<Button variant='primary'>Aplicar ahora</Button>
+				<Button variant='primary' onClick={handleApply}>
+					Aplicar ahora
+				</Button>
 			</header>
 			<div className={styles.body}>
 				<p>
@@ -66,15 +78,17 @@ export default function JobDetails() {
 						))}
 					</ul>
 				</section>
-				<Button variant='primary'>Aplicar ahora</Button>
+				<Button variant='primary' onClick={handleApply}>
+					Aplicar ahora
+				</Button>
 			</div>
 			<footer className={styles.footer}>
 				<section>
-					<h4>${salary}</h4>
+					<h4>${salary.toLocaleString('es-ES')}</h4>
 					<p>Salario</p>
 				</section>
 				<section>
-					<h4>{category?.join(' • ')}</h4>
+					<h4>{categories?.join(' • ')}</h4>
 					<p>Categorías</p>
 				</section>
 				<section>

@@ -1,4 +1,5 @@
 import styles from '../styles/JobCard.module.css'
+import Category from './Category'
 
 function getDays(creationDate) {
 	const now = new Date()
@@ -21,7 +22,7 @@ function floorDescription(description) {
  * @param {import('../types/Job').Job}
  */
 export default function JobCard({
-	category,
+	categories,
 	creationDate,
 	description,
 	employer,
@@ -42,7 +43,7 @@ export default function JobCard({
 				value={id}
 				onChange={() =>
 					handleChange({
-						category,
+						categories,
 						creationDate,
 						description,
 						employer,
@@ -68,8 +69,8 @@ export default function JobCard({
 					<section>
 						<h4>Categorías</h4>
 						<ul>
-							{category?.map((c, index) => (
-								<li key={index}>{c}</li>
+							{categories?.map((category, index) => (
+								<Category key={index} category={category} />
 							))}
 						</ul>
 					</section>

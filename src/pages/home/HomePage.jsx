@@ -5,6 +5,7 @@ import JobCollection from './JobCollection'
 import styles from './HomePage.module.css'
 import Input from '../../components/Input'
 import { useJobCollection } from './hooks'
+import Spinner from '../../components/Spinner'
 
 export default function HomePage() {
 	const { logged, token } = useAuth()
@@ -13,7 +14,11 @@ export default function HomePage() {
 		return <Navigate to={ROUTES.authRoute} replace />
 	}
 
-	const { filter, handleFilter, jobs } = useJobCollection(token)
+	const { filter, handleFilter, jobs, isLoading } = useJobCollection(token)
+
+	if (isLoading) {
+		return <Spinner />
+	}
 
 	return (
 		<div className={styles.container}>
